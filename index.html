@@ -8,28 +8,403 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
 :root{--ink:#111;--ink2:#171717;--paper:#f2f0eb;--muted:#aaa;--line:#454545;--paperline:#c8c5bd}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--ink);color:#fff;font-family:Montserrat,Arial,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}.serif,h1,h2,.quote p{font-family:"Cormorant Garamond",serif}.wrap{width:min(1180px,88%);margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:3.5px;font-size:9px;font-weight:500;color:#bcbcbc}.rule{height:1px;width:48px;background:#777;margin:19px 0 24px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#f1f0ec;color:#111;padding:15px 22px;font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;border:1px solid #f1f0ec;transition:.25s}.btn:hover{transform:translateY(-2px);background:#fff}.btn.dark{background:#171717;color:#fff;border-color:#555}
-header{position:absolute;z-index:20;top:0;left:0;width:100%;padding:20px 0}.head{display:flex;align-items:center;justify-content:space-between;gap:25px}.brand{display:flex;align-items:center;gap:11px}.monogram{font:400 38px/1 "Cormorant Garamond",serif}.brand-name{font:500 16px/1 "Cormorant Garamond",serif;letter-spacing:2px}.brand-role{font-size:6px;letter-spacing:1.6px;text-transform:uppercase;color:#aaa;margin-top:4px}.nav{display:flex;gap:24px;align-items:center}.nav a{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#ddd}.social{font-size:20px;margin-left:2px}.menu{display:none;background:none;border:0;color:#fff;font-size:25px}
-.nav .btn{color:#111!important}body.open .nav .btn{color:#111!important}
-.hero{min-height:650px;position:relative;overflow:hidden;display:flex;align-items:center}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0c0c0cf7 0%,#0c0c0ce9 34%,#0c0c0c59 64%,#0c0c0cd5 100%),url("images/isaias-hero.jpeg") 67% center/auto 100% no-repeat,#101010}.hero-content{position:relative;z-index:1;padding-top:50px;max-width:600px}.hero h1{font-size:72px;line-height:.86;font-weight:500;text-transform:uppercase;letter-spacing:-1px;margin-top:18px}.hero h1 span{color:#aaa}.hero-copy{font-size:12px;line-height:1.65;color:#d0d0d0;max-width:390px;margin-top:25px}.hero .rule{width:105px;margin:22px 0 15px}.hero-side{position:absolute;right:7%;top:205px;width:90px;z-index:2}.hero-side p{font-size:8px;line-height:2.05;letter-spacing:3px;text-transform:uppercase;color:#ddd}.hero-side .side-line{width:42px;height:1px;background:#aaa;margin-top:17px}.hero-meta{display:flex;gap:35px;margin-top:22px}.meta{display:flex;align-items:center;gap:9px;font-size:7px;line-height:1.4;letter-spacing:1px;text-transform:uppercase;color:#ddd}.meta i{font-style:normal;font-size:20px;color:#fff}.hero .btn{margin-top:20px}
-.about{background:var(--paper);color:#161616;padding:0}.about-grid{display:grid;grid-template-columns:34% 66%;min-height:370px}.about-photo{min-height:370px;overflow:hidden;background:#111}.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:grayscale(100%)}.about-copy{padding:55px 8% 50px 7%;display:grid;grid-template-columns:1fr 190px;gap:45px;align-items:center}.about h2{font-size:43px;line-height:.98;font-weight:500;max-width:550px}.about p{font-size:10.5px;line-height:1.65;max-width:510px;margin-bottom:13px}.signature{font:italic 29px/1 "Cormorant Garamond",serif;margin-top:14px}.quote{border-left:1px solid #bcbab2;padding-left:35px}.quote-mark{font:400 46px/1 Georgia,serif}.quote p{font-size:23px;line-height:1.12;font-style:italic;margin:9px 0 25px}.quote-name{font-size:8px;letter-spacing:2px;text-transform:uppercase}
-.process{background:#151515;padding:45px 0 50px}.process-top{display:grid;grid-template-columns:46% 54%;align-items:end;margin-bottom:27px}.process h2,.audience h2,.approach h2{font-size:39px;line-height:.95;font-weight:500}.process-intro{font-size:10px;color:#bcbcbc;max-width:400px;line-height:1.55}.process-grid{display:grid;grid-template-columns:repeat(4,1fr)}.process-item{padding:0 22px 0 0;margin-right:22px;border-right:1px solid #464646}.process-item:last-child{border:0;margin-right:0}.num{width:40px;height:40px;border:1px solid #858585;border-radius:50%;display:grid;place-items:center;font-size:10px;margin-bottom:18px}.process h3{font-size:9px;letter-spacing:1.7px;text-transform:uppercase;margin-bottom:9px}.process p{font-size:9.5px;color:#bbb;line-height:1.65}
-.audience{background:var(--paper);color:#151515;padding:45px 0 48px}.audience-grid{display:grid;grid-template-columns:26% repeat(4,1fr);align-items:start}.audience-title{padding-right:30px}.audience-title .rule{background:#999;margin:15px 0}.audience-item{padding:0 20px;border-left:1px solid var(--paperline);min-height:95px}.audience-icon{font-size:25px;margin-bottom:12px}.audience p{font-size:9.5px;line-height:1.65}
-.approach{position:relative;overflow:hidden;background:#101010;min-height:430px}.approach-grid{display:grid;grid-template-columns:34% 66%;min-height:430px}.approach-photo{overflow:hidden}.approach-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:grayscale(100%)}.approach-copy{padding:55px 7%;position:relative}.approach-copy:after{content:"";position:absolute;right:7%;top:55px;bottom:55px;width:1px;background:#444}.approach-text{max-width:520px;padding-right:80px}.approach p{font-size:10.5px;color:#c8c8c8;line-height:1.65;margin-bottom:14px}.approach-quote{position:absolute;right:7%;top:135px;width:125px;font:italic 22px/1.1 "Cormorant Garamond",serif;color:#eee}.approach-quote:before{content:"";display:block;width:35px;height:1px;background:#aaa;margin-bottom:18px}
-.statement{background:var(--paper);color:#161616;text-align:center;padding:18px 20px}.statement h2{font-size:29px;line-height:1;font-style:italic;font-weight:500}.statement p{font-size:7px;letter-spacing:3px;text-transform:uppercase;margin-top:7px}
-.faq{background:#151515;padding:45px 0}.faq-grid{display:grid;grid-template-columns:23% 55% 22%;align-items:center}.faq h2{font:500 39px/.95 "Cormorant Garamond",serif}.questions{padding-right:35px}.faq details{border-bottom:1px solid #3e3e3e}.faq summary{list-style:none;cursor:pointer;padding:11px 0;font-size:9px;display:flex;justify-content:space-between;gap:20px}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";font-size:14px;color:#aaa}.faq details[open] summary:after{content:"−"}.faq details p{font-size:9px;color:#aaa;padding:0 25px 12px 0;line-height:1.6}.faq-cta{border-left:1px solid #444;padding-left:32px}.faq-cta p{font-size:10px;color:#ddd;margin-bottom:14px}
-.final{background:var(--paper);color:#151515;padding:18px 0}.final-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}.final h2{font-size:16px;letter-spacing:3px;text-transform:uppercase;font-family:Montserrat,sans-serif;font-weight:500}.final p{font-size:9px;color:#555;margin-top:4px}
-footer{background:#111;padding:25px 0 18px}.foot{display:grid;grid-template-columns:32% 40% 28%;align-items:center}.foot-brand{display:flex;gap:10px;align-items:center}.foot .monogram{font-size:35px}.foot-name{font:500 16px/1 "Cormorant Garamond",serif;letter-spacing:1.5px}.foot-role,.reg{font-size:6px;letter-spacing:1px;text-transform:uppercase;color:#aaa;margin-top:4px}.foot-nav{display:flex;justify-content:center;gap:18px}.foot-nav a{font-size:7px;letter-spacing:.8px;text-transform:uppercase;color:#bbb}.foot-social{text-align:right;font-size:8px;color:#aaa}.foot-bottom{border-top:1px solid #303030;margin-top:20px;padding-top:12px;text-align:right;font-size:7px;color:#666}
-@media(max-width:900px){.nav{display:none}.menu{display:block}.hero{min-height:760px;align-items:flex-end}.hero:before{background:linear-gradient(180deg,#0c0c0c33 0%,#0c0c0c4d 32%,#0c0c0cf2 67%,#101010 100%),url("images/isaias-hero.jpeg") 66% 8%/auto 70% no-repeat,#101010}.hero-content{padding:0 0 50px;max-width:580px}.hero h1{font-size:61px}.hero-side{display:none}.hero-meta{gap:22px}.about-grid,.approach-grid{grid-template-columns:1fr}.about-photo{height:430px;min-height:430px}.about-copy{padding:45px 7%;grid-template-columns:1fr}.quote{border-left:0;border-top:1px solid #bbb;padding:25px 0 0}.process-top{grid-template-columns:1fr;gap:18px}.process-grid{grid-template-columns:1fr 1fr;gap:30px}.process-item{border-right:0;border-bottom:1px solid #444;margin:0;padding:0 0 25px}.audience-grid{grid-template-columns:1fr 1fr}.audience-title{grid-column:1/-1;padding-bottom:25px}.audience-item{min-height:130px;margin-bottom:20px}.approach-grid{min-height:auto}.approach-photo{height:430px}.approach-copy{padding:45px 7% 60px}.approach-copy:after{display:none}.approach-text{padding:0}.approach-quote{position:static;width:auto;margin-top:30px}.approach-quote:before{margin-bottom:12px}.faq-grid{grid-template-columns:1fr}.questions{padding:30px 0}.faq-cta{border-left:0;border-top:1px solid #444;padding:25px 0 0}.final-inner{flex-direction:column;align-items:flex-start}.foot{grid-template-columns:1fr;gap:25px;text-align:center}.foot-brand{justify-content:center}.foot-nav{flex-wrap:wrap}.foot-social{text-align:center}.foot-bottom{text-align:center}}
-@media(max-width:520px){.wrap{width:88%}header{padding:15px 0}.monogram{font-size:32px}.brand-name{font-size:14px}.brand-role{font-size:5px}.hero{min-height:850px}.hero:before{background:linear-gradient(180deg,#0c0c0c22 0%,#0c0c0c38 30%,#0c0c0ce8 58%,#101010 100%),url("images/isaias-hero.jpeg") 62% 4%/auto 62% no-repeat,#101010}.hero-content{padding-bottom:38px}.hero h1{font-size:48px;line-height:.88}.hero-copy{font-size:11px;margin-top:20px}.hero-meta{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px}.meta{font-size:6.5px}.meta i{font-size:18px}.hero .btn{width:100%;font-size:9px}.nav{gap:0}.nav .btn{color:#111!important}.about-photo{height:380px;min-height:380px}.about-copy{padding:38px 7%}.about h2{font-size:37px}.about p{font-size:10px}.process{padding:38px 0}.process h2,.audience h2,.approach h2,.faq h2{font-size:35px}.process-grid{grid-template-columns:1fr;gap:20px}.process-item{padding-bottom:20px}.audience{padding:38px 0}.audience-grid{grid-template-columns:1fr}.audience-title{grid-column:auto}.audience-item{border-left:0;border-top:1px solid var(--paperline);padding:20px 0;min-height:auto;margin:0}.approach-photo{height:360px}.approach-copy{padding:38px 7% 50px}.statement h2{font-size:24px}.faq{padding:38px 0}.final{padding:30px 0}.final h2{font-size:14px}.final .btn{width:100%}}
-.reviews{background:var(--paper);color:#151515;padding:62px 0 66px}.reviews-grid{display:grid;grid-template-columns:28% 44% 28%;gap:0;align-items:start}.reviews-title{padding-right:30px}.reviews-title h2{font-size:39px;line-height:.95;font-weight:500;margin-top:12px}.reviews-intro{font-size:10px;line-height:1.65;color:#555;max-width:450px;margin-bottom:20px}.review-box{border-top:1px solid #c8c5bd;padding-top:18px}.google-btn{display:inline-flex;align-items:center;gap:9px;border:1px solid #aaa;background:#fff;color:#151515;padding:12px 15px;font-family:Montserrat,sans-serif;font-size:9px;font-weight:600;letter-spacing:.7px;cursor:pointer}.google-g{font-size:15px;font-weight:700}.review-signin-note{font-size:8px;color:#777;margin-top:9px;line-height:1.5}.review-form{display:none;margin-top:18px}.review-form.visible{display:block}.review-user{display:flex;align-items:center;gap:10px;margin-bottom:15px}.review-user img{width:34px;height:34px;border-radius:50%;object-fit:cover;background:#ddd}.review-user strong{font-size:10px}.review-label{display:block;font-size:8px;text-transform:uppercase;letter-spacing:1.5px;margin:12px 0 7px}.stars{display:flex;gap:5px}.star{border:0;background:none;padding:0;font-size:24px;color:#bbb;cursor:pointer}.star.active{color:#151515}.review-form textarea{width:100%;min-height:90px;resize:vertical;border:1px solid #c6c3bc;background:#fff;padding:11px;font:9px/1.5 Montserrat,sans-serif;color:#151515}.review-actions{display:flex;align-items:center;gap:12px;margin-top:12px}.review-submit{font-size:8px;padding:11px 14px}.review-status{font-size:8px;color:#777;line-height:1.4}.review-list{border-left:1px solid #c8c5bd;padding-left:28px;margin-left:28px}.review-card{padding:0 0 22px;margin-bottom:22px;border-bottom:1px solid #c8c5bd}.review-card:last-child{border-bottom:0;margin-bottom:0}.review-author{display:flex;flex-direction:column;margin-bottom:8px}.review-author strong{font-size:10px}.review-author small{font-size:7px;color:#777;margin-top:2px}.review-comment{font-size:9.5px;line-height:1.65;color:#444}.review-rating{font-size:12px;letter-spacing:2px;margin-top:8px}.reviews-empty{font-size:9px;color:#777;line-height:1.6}
-@media(max-width:900px){.reviews-grid{grid-template-columns:1fr}.reviews-title{padding-right:0;margin-bottom:25px}.review-list{border-left:0;border-top:1px solid #c8c5bd;padding:25px 0 0;margin:30px 0 0}}
-@media(max-width:520px){.reviews{padding:45px 0 50px}.reviews-title h2{font-size:35px}.review-list{margin-top:25px}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:#fff;font-family:Montserrat,Arial,sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.serif,h1,h2,.quote p{font-family:"Cormorant Garamond",serif}
+.wrap{width:min(1180px,88%);margin:auto}
+.eyebrow{text-transform:uppercase;letter-spacing:3.5px;font-size:9px;font-weight:500;color:#bcbcbc}
+.rule{height:1px;width:48px;background:#777;margin:19px 0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#f1f0ec;color:#111;padding:15px 22px;font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;border:1px solid #f1f0ec;transition:.25s}
+.btn:hover{transform:translateY(-2px);background:#fff}
+.btn.dark{background:#171717;color:#fff;border-color:#555}
+
+header{position:absolute;z-index:20;top:0;left:0;width:100%;padding:20px 0}
+.head{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:flex;align-items:center;gap:11px}
+.monogram{font:400 38px/1 "Cormorant Garamond",serif}
+.brand-name{font:500 16px/1 "Cormorant Garamond",serif;letter-spacing:2px}
+.brand-role{font-size:6px;letter-spacing:1.6px;text-transform:uppercase;color:#aaa;margin-top:4px}
+.nav{display:flex;gap:24px;align-items:center}
+.nav a{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#ddd}
+.social{font-size:20px;margin-left:2px}
+.menu{display:none;background:none;border:0;color:#fff;font-size:25px}
+.nav .btn{color:#111!important}
+body.open .nav .btn{color:#111!important}
+
+.hero{min-height:650px;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0c0c0cf7 0%,#0c0c0ce9 34%,#0c0c0c59 64%,#0c0c0cd5 100%),url("images/isaias-hero.jpeg") 67% center/auto 100% no-repeat,#101010}
+.hero-content{position:relative;z-index:1;padding-top:50px;max-width:600px}
+.hero h1{font-size:72px;line-height:.86;font-weight:500;text-transform:uppercase;letter-spacing:-1px;margin-top:18px}
+.hero h1 span{color:#aaa}
+.hero-copy{font-size:12px;line-height:1.65;color:#d0d0d0;max-width:390px;margin-top:25px}
+.hero .rule{width:105px;margin:22px 0 15px}
+.hero-side{position:absolute;right:7%;top:205px;width:90px;z-index:2}
+.hero-side p{font-size:8px;line-height:2.05;letter-spacing:3px;text-transform:uppercase;color:#ddd}
+.hero-side .side-line{width:42px;height:1px;background:#aaa;margin-top:17px}
+.hero-meta{display:flex;gap:35px;margin-top:22px}
+.meta{display:flex;align-items:center;gap:9px;font-size:7px;line-height:1.4;letter-spacing:1px;text-transform:uppercase;color:#ddd}
+.meta i{font-style:normal;font-size:20px;color:#fff}
+.hero .btn{margin-top:20px}
+
+.about{background:var(--paper);color:#161616;padding:0}
+.about-grid{display:grid;grid-template-columns:34% 66%;min-height:370px}
+.about-photo{min-height:370px;overflow:hidden;background:#111}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:grayscale(100%)}
+.about-copy{padding:55px 8% 50px 7%;display:grid;grid-template-columns:1fr 190px;gap:45px;align-items:center}
+.about h2{font-size:43px;line-height:.98;font-weight:500;max-width:550px}
+.about p{font-size:10.5px;line-height:1.65;max-width:510px;margin-bottom:13px}
+.signature{font:italic 29px/1 "Cormorant Garamond",serif;margin-top:14px}
+.quote{border-left:1px solid #bcbab2;padding-left:35px}
+.quote-mark{font:400 46px/1 Georgia,serif}
+.quote p{font-size:23px;line-height:1.12;font-style:italic;margin:9px 0 25px}
+.quote-name{font-size:8px;letter-spacing:2px;text-transform:uppercase}
+
+.process{background:#151515;padding:45px 0 50px}
+.process-top{display:grid;grid-template-columns:46% 54%;align-items:end;margin-bottom:27px}
+.process h2,.audience h2,.approach h2{font-size:39px;line-height:.95;font-weight:500}
+.process-intro{font-size:10px;color:#bcbcbc;max-width:400px;line-height:1.55}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.process-item{padding:0 22px 0 0;margin-right:22px;border-right:1px solid #464646}
+.process-item:last-child{border:0;margin-right:0}
+.num{width:40px;height:40px;border:1px solid #858585;border-radius:50%;display:grid;place-items:center;font-size:10px;margin-bottom:18px}
+.process h3{font-size:9px;letter-spacing:1.7px;text-transform:uppercase;margin-bottom:9px}
+.process p{font-size:9.5px;color:#bbb;line-height:1.65}
+
+.audience{background:var(--paper);color:#151515;padding:45px 0 48px}
+.audience-grid{display:grid;grid-template-columns:26% repeat(4,1fr);align-items:start}
+.audience-title{padding-right:30px}
+.audience-title .rule{background:#999;margin:15px 0}
+.audience-item{padding:0 20px;border-left:1px solid var(--paperline);min-height:95px}
+.audience-icon{font-size:25px;margin-bottom:12px}
+.audience p{font-size:9.5px;line-height:1.65}
+
+.approach{position:relative;overflow:hidden;background:#101010;min-height:430px}
+.approach-grid{display:grid;grid-template-columns:34% 66%;min-height:430px}
+.approach-photo{overflow:hidden}
+.approach-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:grayscale(100%)}
+.approach-copy{padding:55px 7%;position:relative}
+.approach-copy:after{content:"";position:absolute;right:7%;top:55px;bottom:55px;width:1px;background:#444}
+.approach-text{max-width:520px;padding-right:80px}
+.approach p{font-size:10.5px;color:#c8c8c8;line-height:1.65;margin-bottom:14px}
+.approach-quote{position:absolute;right:7%;top:135px;width:125px;font:italic 22px/1.1 "Cormorant Garamond",serif;color:#eee}
+.approach-quote:before{content:"";display:block;width:35px;height:1px;background:#aaa;margin-bottom:18px}
+
+.statement{background:var(--paper);color:#161616;text-align:center;padding:18px 20px}
+.statement h2{font-size:29px;line-height:1;font-style:italic;font-weight:500}
+.statement p{font-size:7px;letter-spacing:3px;text-transform:uppercase;margin-top:7px}
+
+.faq{background:#151515;padding:45px 0}
+.faq-grid{display:grid;grid-template-columns:23% 55% 22%;align-items:center}
+.faq h2{font:500 39px/.95 "Cormorant Garamond",serif}
+.questions{padding-right:35px}
+.faq details{border-bottom:1px solid #3e3e3e}
+.faq summary{list-style:none;cursor:pointer;padding:11px 0;font-size:9px;display:flex;justify-content:space-between;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-size:14px;color:#aaa}
+.faq details[open] summary:after{content:"−"}
+.faq details p{font-size:9px;color:#aaa;padding:0 25px 12px 0;line-height:1.6}
+.faq-cta{border-left:1px solid #444;padding-left:32px}
+.faq-cta p{font-size:10px;color:#ddd;margin-bottom:14px}
+
+.final{background:var(--paper);color:#151515;padding:18px 0}
+.final-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.final h2{font-size:16px;letter-spacing:3px;text-transform:uppercase;font-family:Montserrat,sans-serif;font-weight:500}
+.final p{font-size:9px;color:#555;margin-top:4px}
+
+footer{background:#111;padding:25px 0 18px}
+.foot{display:grid;grid-template-columns:32% 40% 28%;align-items:center}
+.foot-brand{display:flex;gap:10px;align-items:center}
+.foot .monogram{font-size:35px}
+.foot-name{font:500 16px/1 "Cormorant Garamond",serif;letter-spacing:1.5px}
+.foot-role,.reg{font-size:6px;letter-spacing:1px;text-transform:uppercase;color:#aaa;margin-top:4px}
+.foot-nav{display:flex;justify-content:center;gap:18px}
+.foot-nav a{font-size:7px;letter-spacing:.8px;text-transform:uppercase;color:#bbb}
+.foot-social{text-align:right;font-size:8px;color:#aaa}
+.foot-bottom{border-top:1px solid #303030;margin-top:20px;padding-top:12px;text-align:right;font-size:7px;color:#666}
+
+@media(max-width:900px){
+.nav{display:none}
+.menu{display:block}
+.hero{min-height:760px;align-items:flex-end}
+.hero:before{background:linear-gradient(180deg,#0c0c0c33 0%,#0c0c0c4d 32%,#0c0c0cf2 67%,#101010 100%),url("images/isaias-hero.jpeg") 66% 8%/auto 70% no-repeat,#101010}
+.hero-content{padding:0 0 50px;max-width:580px}
+.hero h1{font-size:61px}
+.hero-side{display:none}
+.hero-meta{gap:22px}
+.about-grid,.approach-grid{grid-template-columns:1fr}
+.about-photo{height:430px;min-height:430px}
+.about-copy{padding:45px 7%;grid-template-columns:1fr}
+.quote{border-left:0;border-top:1px solid #bbb;padding:25px 0 0}
+.process-top{grid-template-columns:1fr;gap:18px}
+.process-grid{grid-template-columns:1fr 1fr;gap:30px}
+.process-item{border-right:0;border-bottom:1px solid #444;margin:0;padding:0 0 25px}
+.audience-grid{grid-template-columns:1fr 1fr}
+.audience-title{grid-column:1/-1;padding-bottom:25px}
+.audience-item{min-height:130px;margin-bottom:20px}
+.approach-grid{min-height:auto}
+.approach-photo{height:430px}
+.approach-copy{padding:45px 7% 60px}
+.approach-copy:after{display:none}
+.approach-text{padding:0}
+.approach-quote{position:static;width:auto;margin-top:30px}
+.approach-quote:before{margin-bottom:12px}
+.faq-grid{grid-template-columns:1fr}
+.questions{padding:30px 0}
+.faq-cta{border-left:0;border-top:1px solid #444;padding:25px 0 0}
+.final-inner{flex-direction:column;align-items:flex-start}
+.foot{grid-template-columns:1fr;gap:25px;text-align:center}
+.foot-brand{justify-content:center}
+.foot-nav{flex-wrap:wrap}
+.foot-social{text-align:center}
+.foot-bottom{text-align:center}
+}
+
+@media(max-width:520px){
+.wrap{width:88%}
+header{padding:15px 0}
+.monogram{font-size:32px}
+.brand-name{font-size:14px}
+.brand-role{font-size:5px}
+.hero{min-height:850px}
+.hero:before{background:linear-gradient(180deg,#0c0c0c22 0%,#0c0c0c38 30%,#0c0c0ce8 58%,#101010 100%),url("images/isaias-hero.jpeg") 62% 4%/auto 62% no-repeat,#101010}
+.hero-content{padding-bottom:38px}
+.hero h1{font-size:48px;line-height:.88}
+.hero-copy{font-size:11px;margin-top:20px}
+.hero-meta{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px}
+.meta{font-size:6.5px}
+.meta i{font-size:18px}
+.hero .btn{width:100%;font-size:9px}
+.nav{gap:0}
+.nav .btn{color:#111!important}
+.about-photo{height:380px;min-height:380px}
+.about-copy{padding:38px 7%}
+.about h2{font-size:37px}
+.about p{font-size:10px}
+.process{padding:38px 0}
+.process h2,.audience h2,.approach h2,.faq h2{font-size:35px}
+.process-grid{grid-template-columns:1fr;gap:20px}
+.process-item{padding-bottom:20px}
+.audience{padding:38px 0}
+.audience-grid{grid-template-columns:1fr}
+.audience-title{grid-column:auto}
+.audience-item{border-left:0;border-top:1px solid var(--paperline);padding:20px 0;min-height:auto;margin:0}
+.approach-photo{height:360px}
+.approach-copy{padding:38px 7% 50px}
+.statement h2{font-size:24px}
+.faq{padding:38px 0}
+.final{padding:30px 0}
+.final h2{font-size:14px}
+.final .btn{width:100%}
+}
+
+.reviews{
+background:var(--paper);
+color:#151515;
+padding:62px 0 66px
+}
+.reviews-grid{
+display:grid;
+grid-template-columns:28% 44% 28%;
+gap:0;
+align-items:start
+}
+.reviews-title{
+padding-right:30px
+}
+.reviews-title h2{
+font-size:39px;
+line-height:.95;
+font-weight:500;
+margin-top:12px
+}
+.reviews-intro{
+font-size:10px;
+line-height:1.65;
+color:#555;
+max-width:450px;
+margin-bottom:20px
+}
+.review-box{
+border-top:1px solid #c8c5bd;
+padding-top:18px
+}
+.google-btn{
+display:inline-flex;
+align-items:center;
+gap:9px;
+border:1px solid #aaa;
+background:#fff;
+color:#151515;
+padding:12px 15px;
+font-family:Montserrat,sans-serif;
+font-size:9px;
+font-weight:600;
+letter-spacing:.7px;
+cursor:pointer
+}
+.google-g{
+font-size:15px;
+font-weight:700
+}
+.review-signin-note{
+font-size:8px;
+color:#777;
+margin-top:9px;
+line-height:1.5
+}
+.review-form{
+display:none;
+margin-top:18px
+}
+.review-form.visible{
+display:block
+}
+.review-user{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:15px
+}
+.review-user img{
+width:34px;
+height:34px;
+border-radius:50%;
+object-fit:cover;
+background:#ddd
+}
+.review-user strong{
+font-size:10px
+}
+.review-label{
+display:block;
+font-size:8px;
+text-transform:uppercase;
+letter-spacing:1.5px;
+margin:12px 0 7px
+}
+.stars{
+display:flex;
+gap:5px
+}
+.star{
+border:0;
+background:none;
+padding:0;
+font-size:24px;
+color:#bbb;
+cursor:pointer
+}
+.star.active{
+color:#151515
+}
+.review-form textarea{
+width:100%;
+min-height:90px;
+resize:vertical;
+border:1px solid #c6c3bc;
+background:#fff;
+padding:11px;
+font:9px/1.5 Montserrat,sans-serif;
+color:#151515
+}
+.review-actions{
+display:flex;
+align-items:center;
+gap:12px;
+margin-top:12px
+}
+.review-submit{
+font-size:8px;
+padding:11px 14px
+}
+.review-status{
+font-size:8px;
+color:#777;
+line-height:1.4
+}
+.review-list{
+border-left:1px solid #c8c5bd;
+padding-left:28px;
+margin-left:28px
+}
+.review-card{
+padding:0 0 22px;
+margin-bottom:22px;
+border-bottom:1px solid #c8c5bd
+}
+.review-card:last-child{
+border-bottom:0;
+margin-bottom:0
+}
+.review-author{
+display:flex;
+flex-direction:column;
+margin-bottom:8px
+}
+.review-author strong{
+font-size:10px
+}
+.review-author small{
+font-size:7px;
+color:#777;
+margin-top:2px
+}
+.review-comment{
+font-size:9.5px;
+line-height:1.65;
+color:#444
+}
+.review-rating{
+font-size:12px;
+letter-spacing:2px;
+margin-top:8px
+}
+.reviews-empty{
+font-size:9px;
+color:#777;
+line-height:1.6
+}
+
+@media(max-width:900px){
+.reviews-grid{
+grid-template-columns:1fr
+}
+.reviews-title{
+padding-right:0;
+margin-bottom:25px
+}
+.review-list{
+border-left:0;
+border-top:1px solid #c8c5bd;
+padding:25px 0 0;
+margin:30px 0 0
+}
+}
+
+@media(max-width:520px){
+.reviews{
+padding:45px 0 50px
+}
+.reviews-title h2{
+font-size:35px
+}
+.review-list{
+margin-top:25px
+}
+}
 </style>
-<script src="firebase-config.js"></script></head>
+
+<script src="firebase-config.js"></script>
+</head>
+
 <body>
+
 <header>
 <div class="wrap head">
 <a class="brand" href="#inicio">
@@ -39,6 +414,7 @@ footer{background:#111;padding:25px 0 18px}.foot{display:grid;grid-template-colu
 <div class="brand-role">PSICANALISTA CLÍNICO<br>E TANATOLOGISTA</div>
 </div>
 </a>
+
 <nav class="nav">
 <a href="#inicio">Início</a>
 <a href="#sobre">Sobre</a>
@@ -51,87 +427,246 @@ footer{background:#111;padding:25px 0 18px}.foot{display:grid;grid-template-colu
 <span class="social">◎</span>
 <a class="btn" href="https://wa.me/5583981254124" target="_blank" rel="noopener">◉ &nbsp; Agendar conversa</a>
 </nav>
+
 <button class="menu" aria-label="Abrir menu">☰</button>
 </div>
 </header>
 
 <main>
+
 <section class="hero" id="inicio">
 <div class="wrap hero-content">
+
 <div class="eyebrow">Psicanalista Clínico e Tanatologista</div>
-<h1>ELABORAR<br>O LUTO É<br><span>POSSÍVEL.</span></h1>
+
+<h1>
+ELABORAR<br>
+O LUTO É<br>
+<span>POSSÍVEL.</span>
+</h1>
+
 <div class="rule"></div>
-<p class="hero-copy">Um espaço seguro para você falar da sua dor, compreender o que sente e ressignificar sua história no seu tempo.</p>
-<a class="btn" href="https://wa.me/5583981254124" target="_blank" rel="noopener">◉ &nbsp; Agendar minha conversa inicial &nbsp; →</a>
+
+<p class="hero-copy">
+Um espaço seguro para você falar da sua dor, compreender o que sente e ressignificar sua história no seu tempo.
+</p>
+
+<a class="btn" href="https://wa.me/5583981254124" target="_blank" rel="noopener">
+◉ &nbsp; Agendar minha conversa inicial &nbsp; →
+</a>
+
 <div class="hero-meta">
-<div class="meta"><i>♧</i><span>Atendimento<br>online<br>com sigilo</span></div>
-<div class="meta"><i>♡</i><span>Escuta sem<br>julgamentos</span></div>
-<div class="meta"><i>◷</i><span>Respeito ao<br>seu tempo</span></div>
-<div class="meta"><i>◌</i><span>Um espaço para<br>elaborar a perda</span></div>
-<div class="meta"><i>○</i><span>Acolhimento<br>para sua história</span></div>
-<div class="meta"><i>⌁</i><span>Sem pressa para<br>viver o processo</span></div>
-<div class="meta"><i>“</i><span>Escuta para o que<br>ainda não foi dito</span></div>
-<div class="meta"><i>◇</i><span>Ressignificação<br>no seu tempo</span></div>
+
+<div class="meta">
+<i>♧</i>
+<span>Atendimento<br>online<br>com sigilo</span>
+</div>
+
+<div class="meta">
+<i>♡</i>
+<span>Escuta sem<br>julgamentos</span>
+</div>
+
+<div class="meta">
+<i>◷</i>
+<span>Respeito ao<br>seu tempo</span>
+</div>
+
+<div class="meta">
+<i>◌</i>
+<span>Um espaço para<br>elaborar a perda</span>
+</div>
+
+<div class="meta">
+<i>○</i>
+<span>Acolhimento<br>para sua história</span>
+</div>
+
+<div class="meta">
+<i>⌁</i>
+<span>Sem pressa para<br>viver o processo</span>
+</div>
+
+<div class="meta">
+<i>“</i>
+<span>Escuta para o que<br>ainda não foi dito</span>
+</div>
+
+<div class="meta">
+<i>◇</i>
+<span>Ressignificação<br>no seu tempo</span>
+</div>
+
 </div>
 </div>
-<div class="hero-side"><p>Existem<br>dores que<br>também<br>merecem<br>escuta.</p><div class="side-line"></div></div>
+
+<div class="hero-side">
+<p>
+Existem<br>
+dores que<br>
+também<br>
+merecem<br>
+escuta.
+</p>
+<div class="side-line"></div>
+</div>
+
 </section>
 
 <section class="about" id="sobre">
 <div class="about-grid">
-<div class="about-photo"><img src="images/isaias-sobre.jpeg" alt="Isaías Bezerra"></div>
-<div class="about-copy">
-<div>
-<div class="eyebrow" style="color:#555">Sobre mim</div>
-<h2>Quando a perda muda a forma como você se relaciona com a própria história.</h2>
-<div class="rule"></div>
-<p>Meu trabalho nasce da escuta. Como psicanalista clínico e tanatologista, acompanho pessoas que atravessam experiências de luto e perdas, oferecendo um espaço onde aquilo que muitas vezes não encontra palavras possa ser elaborado.</p>
-<p>Não existe uma maneira única de viver o luto. Cada história produz marcas diferentes, e cada pessoa precisa encontrar seu próprio tempo para compreender o que a perda passou a significar.</p>
-<div class="signature">Isaías Bezerra</div>
+
+<div class="about-photo">
+<img src="images/isaias-sobre.jpeg" alt="Isaías Bezerra">
 </div>
-<div class="quote"><div class="quote-mark">“</div><p>Algumas dores não precisam ser apressadas. Precisam ser escutadas.</p><div class="quote-name">Isaías Bezerra</div></div>
+
+<div class="about-copy">
+
+<div>
+
+<div class="eyebrow" style="color:#555">Sobre mim</div>
+
+<h2>
+Quando a perda muda a forma como você se relaciona com a própria história.
+</h2>
+
+<div class="rule"></div>
+
+<p>
+Meu trabalho nasce da escuta. Como psicanalista clínico e tanatologista, acompanho pessoas que atravessam experiências de luto e perdas, oferecendo um espaço onde aquilo que muitas vezes não encontra palavras possa ser elaborado.
+</p>
+
+<p>
+Não existe uma maneira única de viver o luto. Cada história produz marcas diferentes, e cada pessoa precisa encontrar seu próprio tempo para compreender o que a perda passou a significar.
+</p>
+
+<div class="signature">Isaías Bezerra</div>
+
+</div>
+
+<div class="quote">
+<div class="quote-mark">“</div>
+<p>Algumas dores não precisam ser apressadas. Precisam ser escutadas.</p>
+<div class="quote-name">Isaías Bezerra</div>
+</div>
+
 </div>
 </div>
 </section>
 
 <section class="process" id="processo">
 <div class="wrap">
+
 <div class="process-top">
-<div><div class="eyebrow">O processo</div><h2>Um espaço para<br>elaborar o que aconteceu.</h2></div>
-<p class="process-intro">O acompanhamento é construído a partir da sua história, respeitando aquilo que você consegue dizer, aquilo que ainda não consegue e o tempo singular de cada elaboração.</p>
+
+<div>
+<div class="eyebrow">O processo</div>
+<h2>Um espaço para<br>elaborar o que aconteceu.</h2>
 </div>
+
+<p class="process-intro">
+O acompanhamento é construído a partir da sua história, respeitando aquilo que você consegue dizer, aquilo que ainda não consegue e o tempo singular de cada elaboração.
+</p>
+
+</div>
+
 <div class="process-grid">
-<div class="process-item"><div class="num">01</div><h3>Escutar</h3><p>Dar lugar àquilo que você sente, pensa e carrega desde a perda.</p></div>
-<div class="process-item"><div class="num">02</div><h3>Compreender</h3><p>Olhar para os significados que essa experiência passou a ocupar na sua história.</p></div>
-<div class="process-item"><div class="num">03</div><h3>Elaborar</h3><p>Construir, através da fala e da escuta, novas possibilidades de relação com a perda.</p></div>
-<div class="process-item"><div class="num">04</div><h3>Ressignificar</h3><p>Encontrar uma forma possível de continuar vivendo sem apagar aquilo que foi vivido.</p></div>
+
+<div class="process-item">
+<div class="num">01</div>
+<h3>Escutar</h3>
+<p>Dar lugar àquilo que você sente, pensa e carrega desde a perda.</p>
+</div>
+
+<div class="process-item">
+<div class="num">02</div>
+<h3>Compreender</h3>
+<p>Olhar para os significados que essa experiência passou a ocupar na sua história.</p>
+</div>
+
+<div class="process-item">
+<div class="num">03</div>
+<h3>Elaborar</h3>
+<p>Construir, através da fala e da escuta, novas possibilidades de relação com a perda.</p>
+</div>
+
+<div class="process-item">
+<div class="num">04</div>
+<h3>Ressignificar</h3>
+<p>Encontrar uma forma possível de continuar vivendo sem apagar aquilo que foi vivido.</p>
+</div>
+
 </div>
 </div>
 </section>
 
 <section class="audience" id="para-quem">
 <div class="wrap audience-grid">
-<div class="audience-title"><div class="eyebrow" style="color:#555">Para quem é</div><h2>Quando procurar<br>um espaço de escuta?</h2><div class="rule"></div></div>
-<div class="audience-item"><div class="audience-icon">○</div><p>Para quem vive uma perda recente e sente dificuldade para compreender o que está acontecendo internamente.</p></div>
-<div class="audience-item"><div class="audience-icon">◐</div><p>Para quem carrega um luto antigo que continua produzindo efeitos na vida atual.</p></div>
-<div class="audience-item"><div class="audience-icon">△</div><p>Para quem enfrenta perdas simbólicas, rupturas, mudanças ou outras experiências de finitude.</p></div>
-<div class="audience-item"><div class="audience-icon">◇</div><p>Para quem percebe que precisa falar sobre aquilo que viveu, mas ainda não encontrou espaço para fazê-lo.</p></div>
+
+<div class="audience-title">
+<div class="eyebrow" style="color:#555">Para quem é</div>
+<h2>Quando procurar<br>um espaço de escuta?</h2>
+<div class="rule"></div>
+</div>
+
+<div class="audience-item">
+<div class="audience-icon">○</div>
+<p>Para quem vive uma perda recente e sente dificuldade para compreender o que está acontecendo internamente.</p>
+</div>
+
+<div class="audience-item">
+<div class="audience-icon">◐</div>
+<p>Para quem carrega um luto antigo que continua produzindo efeitos na vida atual.</p>
+</div>
+
+<div class="audience-item">
+<div class="audience-icon">△</div>
+<p>Para quem enfrenta perdas simbólicas, rupturas, mudanças ou outras experiências de finitude.</p>
+</div>
+
+<div class="audience-item">
+<div class="audience-icon">◇</div>
+<p>Para quem percebe que precisa falar sobre aquilo que viveu, mas ainda não encontrou espaço para fazê-lo.</p>
+</div>
+
 </div>
 </section>
 
 <section class="approach" id="abordagem">
 <div class="approach-grid">
-<div class="approach-photo"><img src="images/isaias-abordagem.jpeg" alt="Isaías Bezerra em atendimento"></div>
-<div class="approach-copy">
-<div class="approach-text">
-<div class="eyebrow">Minha abordagem</div>
-<h2>Psicanálise e Tanatologia</h2>
-<div class="rule"></div>
-<p>O trabalho parte da palavra e da escuta. Através da psicanálise, buscamos compreender aquilo que a perda mobiliza na sua história, nos seus vínculos, nos seus desejos e na forma como você se relaciona consigo mesmo.</p>
-<p>A Tanatologia amplia esse olhar para as experiências de morte, perdas e finitude, permitindo que o luto seja compreendido não como algo que precisa ser eliminado, mas como um processo que precisa encontrar espaço para ser elaborado.</p>
-<p>Não se trata de esquecer. Trata-se de encontrar novas formas de se relacionar com aquilo que aconteceu.</p>
+
+<div class="approach-photo">
+<img src="images/isaias-abordagem.jpeg" alt="Isaías Bezerra em atendimento">
 </div>
-<div class="approach-quote">“A despedida não apaga o vínculo. Ela transforma a forma como ele permanece.”</div>
+
+<div class="approach-copy">
+
+<div class="approach-text">
+
+<div class="eyebrow">Minha abordagem</div>
+
+<h2>Psicanálise e Tanatologia</h2>
+
+<div class="rule"></div>
+
+<p>
+O trabalho parte da palavra e da escuta. Através da psicanálise, buscamos compreender aquilo que a perda mobiliza na sua história, nos seus vínculos, nos seus desejos e na forma como você se relaciona consigo mesmo.
+</p>
+
+<p>
+A Tanatologia amplia esse olhar para as experiências de morte, perdas e finitude, permitindo que o luto seja compreendido não como algo que precisa ser eliminado, mas como um processo que precisa encontrar espaço para ser elaborado.
+</p>
+
+<p>
+Não se trata de esquecer. Trata-se de encontrar novas formas de se relacionar com aquilo que aconteceu.
+</p>
+
+</div>
+
+<div class="approach-quote">
+“A despedida não apaga o vínculo. Ela transforma a forma como ele permanece.”
+</div>
+
 </div>
 </div>
 </section>
@@ -142,76 +677,248 @@ footer{background:#111;padding:25px 0 18px}.foot{display:grid;grid-template-colu
 </section>
 
 <section class="reviews" id="avaliacoes">
+
 <div class="wrap reviews-grid">
+
 <div class="reviews-title">
-<div class="eyebrow" style="color:#555">Experiências <span style="display:inline-block;width:38px;height:1px;background:#999;vertical-align:middle;margin-left:10px"></span></div>
-<h2>Como foi sua experiência comigo?</h2>
+
+<div class="eyebrow" style="color:#555">
+Experiências
+<span style="display:inline-block;width:38px;height:1px;background:#999;vertical-align:middle;margin-left:10px"></span>
 </div>
+
+<h2>Como foi sua experiência comigo?</h2>
+
+</div>
+
 <div>
-<p class="reviews-intro">Se você já passou por um processo de atendimento comigo, sua experiência pode ajudar outras pessoas a compreenderem como é esse espaço de escuta.</p>
+
+<p class="reviews-intro">
+Se você já passou por um processo de atendimento comigo, sua experiência pode ajudar outras pessoas a compreenderem como é esse espaço de escuta.
+</p>
+
 <div class="review-box">
-<button class="google-btn" id="googleSignIn" type="button"><span class="google-g">G</span> Avaliar com minha conta Google</button>
-<p class="review-signin-note">Para preservar a autenticidade das avaliações, o envio é feito após o login com uma conta Google.</p>
+
+<button class="google-btn" id="googleSignIn" type="button">
+<span class="google-g">G</span>
+Avaliar com minha conta Google
+</button>
+
+<p class="review-signin-note">
+Para preservar a autenticidade das avaliações, o envio é feito após o login com uma conta Google.
+</p>
+
 <div class="review-form" id="reviewForm">
-<div class="review-user"><img id="reviewAvatar" alt=""><div><strong id="reviewName"></strong><small style="display:block;color:#777;font-size:10px">Sua avaliação ficará aguardando aprovação antes de aparecer no site.</small></div></div>
+
+<div class="review-user">
+
+<img id="reviewAvatar" alt="">
+
+<div>
+<strong id="reviewName"></strong>
+
+<small style="display:block;color:#777;font-size:10px">
+Sua avaliação ficará aguardando aprovação antes de aparecer no site.
+</small>
+
+</div>
+</div>
+
 <label class="review-label">Sua nota</label>
+
 <div class="stars" id="stars" aria-label="Escolha de 1 a 5 estrelas">
+
 <button class="star" type="button" data-rating="1" aria-label="1 estrela">★</button>
 <button class="star" type="button" data-rating="2" aria-label="2 estrelas">★</button>
 <button class="star" type="button" data-rating="3" aria-label="3 estrelas">★</button>
 <button class="star" type="button" data-rating="4" aria-label="4 estrelas">★</button>
 <button class="star" type="button" data-rating="5" aria-label="5 estrelas">★</button>
+
 </div>
+
 <label class="review-label" for="reviewComment">Comentário</label>
+
 <textarea id="reviewComment" maxlength="400" placeholder="Conte brevemente como foi sua experiência com o atendimento."></textarea>
-<div class="review-actions"><button class="btn dark review-submit" id="submitReview" type="button">Publicar avaliação →</button><span class="review-status" id="reviewStatus"></span></div>
+
+<div class="review-actions">
+
+<button class="btn dark review-submit" id="submitReview" type="button">
+Publicar avaliação →
+</button>
+
+<span class="review-status" id="reviewStatus"></span>
+
+</div>
+
 </div>
 </div>
 </div>
-<div class="review-list" id="reviewList"><div class="reviews-empty">As avaliações aparecerão aqui conforme forem aprovadas.</div></div>
+
+<div class="review-list" id="reviewList">
+<div class="reviews-empty">
+As avaliações aparecerão aqui conforme forem aprovadas.
+</div>
+</div>
+
 </div>
 </section>
 
 <section class="faq" id="faq">
+
 <div class="wrap faq-grid">
-<div><div class="eyebrow">Dúvidas <span style="display:inline-block;width:38px;height:1px;background:#777;vertical-align:middle;margin-left:10px"></span></div><h2>Perguntas<br>frequentes</h2></div>
-<div class="questions">
-<details><summary>Como funciona o primeiro atendimento?</summary><p>O primeiro contato é uma conversa inicial para que eu possa ouvir sua história, compreender sua demanda e explicar como podemos iniciar o acompanhamento.</p></details>
-<details><summary>O atendimento é online?</summary><p>Sim. O atendimento é realizado online, com sigilo e privacidade, permitindo acompanhamento de diferentes regiões do Brasil.</p></details>
-<details><summary>Preciso estar vivendo um luto recente?</summary><p>Não. O processo pode fazer sentido tanto em perdas recentes quanto em experiências que continuam produzindo efeitos depois de meses ou anos.</p></details>
-<details><summary>Posso procurar atendimento por uma perda que aconteceu há anos?</summary><p>Sim. O tempo transcorrido não invalida aquilo que uma perda ainda representa na história de uma pessoa.</p></details>
-<details><summary>Como saber se esse trabalho pode fazer sentido para mim?</summary><p>A conversa inicial é justamente um espaço para compreender sua demanda e avaliar, com cuidado, se esse acompanhamento é adequado para você.</p></details>
+
+<div>
+
+<div class="eyebrow">
+Dúvidas
+<span style="display:inline-block;width:38px;height:1px;background:#777;vertical-align:middle;margin-left:10px"></span>
 </div>
-<div class="faq-cta"><div class="eyebrow">Ainda tem dúvidas?</div><p>Estou à disposição para conversar com você.</p><a class="btn" href="https://wa.me/5583981254124" target="_blank" rel="noopener">◉ &nbsp; Falar pelo WhatsApp &nbsp; →</a></div>
+
+<h2>Perguntas<br>frequentes</h2>
+
+</div>
+
+<div class="questions">
+
+<details>
+<summary>Como funciona o primeiro atendimento?</summary>
+<p>
+O primeiro contato é uma conversa inicial para que eu possa ouvir sua história, compreender sua demanda e explicar como podemos iniciar o acompanhamento.
+</p>
+</details>
+
+<details>
+<summary>O atendimento é online?</summary>
+<p>
+Sim. O atendimento é realizado online, com sigilo e privacidade, permitindo acompanhamento de diferentes regiões do Brasil.
+</p>
+</details>
+
+<details>
+<summary>Preciso estar vivendo um luto recente?</summary>
+<p>
+Não. O processo pode fazer sentido tanto em perdas recentes quanto em experiências que continuam produzindo efeitos depois de meses ou anos.
+</p>
+</details>
+
+<details>
+<summary>Posso procurar atendimento por uma perda que aconteceu há anos?</summary>
+<p>
+Sim. O tempo transcorrido não invalida aquilo que uma perda ainda representa na história de uma pessoa.
+</p>
+</details>
+
+<details>
+<summary>Como saber se esse trabalho pode fazer sentido para mim?</summary>
+<p>
+A conversa inicial é justamente um espaço para compreender sua demanda e avaliar, com cuidado, se esse acompanhamento é adequado para você.
+</p>
+</details>
+
+</div>
+
+<div class="faq-cta">
+
+<div class="eyebrow">Ainda tem dúvidas?</div>
+
+<p>Estou à disposição para conversar com você.</p>
+
+<a class="btn" href="https://wa.me/5583981254124" target="_blank" rel="noopener">
+◉ &nbsp; Falar pelo WhatsApp &nbsp; →
+</a>
+
+</div>
+
 </div>
 </section>
 
 <section class="final" id="contato">
+
 <div class="wrap final-inner">
-<div><h2>Você não precisa atravessar isso sozinho(a).</h2><p>Quando estiver pronto(a), estarei aqui para ouvir.</p></div>
-<a class="btn dark" href="https://wa.me/5583981254124" target="_blank" rel="noopener">◉ &nbsp; Agendar minha conversa inicial &nbsp; →</a>
+
+<div>
+<h2>Você não precisa atravessar isso sozinho(a).</h2>
+<p>Quando estiver pronto(a), estarei aqui para ouvir.</p>
 </div>
+
+<a class="btn dark" href="https://wa.me/5583981254124" target="_blank" rel="noopener">
+◉ &nbsp; Agendar minha conversa inicial &nbsp; →
+</a>
+
+</div>
+
 </section>
+
 </main>
 
 <footer>
+
 <div class="wrap">
+
 <div class="foot">
-<div class="foot-brand"><div class="monogram">IB</div><div><div class="foot-name">ISAÍAS BEZERRA</div><div class="foot-role">Psicanalista Clínico e Tanatologista</div><div class="reg">SBPP202512525 | CBO 2515-50</div></div></div>
-<nav class="foot-nav"><a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#processo">Processo</a><a href="#para-quem">Para quem é</a><a href="#abordagem">Abordagem</a><a href="#avaliacoes">Avaliações</a><a href="#faq">FAQ</a><a href="#contato">Contato</a></nav>
-<div class="foot-social">◎ &nbsp; @isaiasbezerrapsi<br><span>Atendimento online em todo o Brasil</span></div>
+
+<div class="foot-brand">
+
+<div class="monogram">IB</div>
+
+<div>
+<div class="foot-name">ISAÍAS BEZERRA</div>
+<div class="foot-role">Psicanalista Clínico e Tanatologista</div>
+<div class="reg">SBPP202512525 | CBO 2515-50</div>
 </div>
-<div class="foot-bottom">© 2026 Isaías Bezerra. Todos os direitos reservados.</div>
+
+</div>
+
+<nav class="foot-nav">
+<a href="#inicio">Início</a>
+<a href="#sobre">Sobre</a>
+<a href="#processo">Processo</a>
+<a href="#para-quem">Para quem é</a>
+<a href="#abordagem">Abordagem</a>
+<a href="#avaliacoes">Avaliações</a>
+<a href="#faq">FAQ</a>
+<a href="#contato">Contato</a>
+</nav>
+
+<div class="foot-social">
+◎ &nbsp; @isaiasbezerrapsi<br>
+<span>Atendimento online em todo o Brasil</span>
+</div>
+
+</div>
+
+<div class="foot-bottom">
+© 2026 Isaías Bezerra. Todos os direitos reservados.
+</div>
+
 </div>
 </footer>
 
 
 <script type="module">
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, query, where, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+import {
+getAuth,
+GoogleAuthProvider,
+signInWithPopup,
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+query,
+where,
+onSnapshot,
+serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
 
 const config=window.ISAIAS_FIREBASE_CONFIG||null;
+
 const signInBtn=document.getElementById('googleSignIn');
 const form=document.getElementById('reviewForm');
 const nameEl=document.getElementById('reviewName');
@@ -219,65 +926,174 @@ const avatarEl=document.getElementById('reviewAvatar');
 const commentEl=document.getElementById('reviewComment');
 const statusEl=document.getElementById('reviewStatus');
 const listEl=document.getElementById('reviewList');
+
 let auth,db,user,rating=0;
 
-function stars(n){return '★'.repeat(n)+'☆'.repeat(5-n);}
-function escapeHtml(v){const d=document.createElement('div');d.textContent=v||'';return d.innerHTML;}
-function setStatus(t){statusEl.textContent=t||'';}
 
-if(!config||!config.apiKey||config.apiKey.startsWith('COLE_')){
+function stars(n){
+return '★'.repeat(n)+'☆'.repeat(5-n);
+}
+
+
+function escapeHtml(v){
+const d=document.createElement('div');
+d.textContent=v||'';
+return d.innerHTML;
+}
+
+
+function setStatus(t){
+statusEl.textContent=t||'';
+}
+
+
+if(
+!config||
+!config.apiKey||
+config.apiKey.startsWith('COLE_')
+){
+
 signInBtn.disabled=true;
 signInBtn.style.opacity='.55';
 signInBtn.title='As avaliações ainda precisam ser configuradas no Firebase.';
 setStatus('As avaliações precisam ser ativadas no Firebase.');
+
 }else{
+
 const app=initializeApp(config);
+
 auth=getAuth(app);
 db=getFirestore(app);
+
 const provider=new GoogleAuthProvider();
 
+
+/* LOGIN GOOGLE — CORRIGIDO PARA POPUP */
+
 signInBtn.addEventListener('click',async()=>{
+
 try{
+
 setStatus('Abrindo login do Google...');
-await signInWithRedirect(auth,provider);
-}catch(e){
-console.error(e);
-setStatus('Não foi possível abrir o login do Google. Tente novamente.');
+
+const result=await signInWithPopup(auth,provider);
+
+if(result?.user){
+user=result.user;
 }
+
+}catch(e){
+
+console.error(e);
+
+if(e?.code==='auth/popup-closed-by-user'){
+
+setStatus('O login foi fechado. Tente novamente.');
+
+}else if(e?.code==='auth/popup-blocked'){
+
+setStatus('O navegador bloqueou a janela de login. Permita pop-ups e tente novamente.');
+
+}else{
+
+setStatus('Não foi possível concluir o login do Google. Tente novamente.');
+
+}
+
+}
+
 });
 
-getRedirectResult(auth).catch(e=>{
-console.error(e);
-if(e?.code)setStatus('Não foi possível concluir o login com o Google.');
-});
+
+/* ESTADO DA AUTENTICAÇÃO */
 
 onAuthStateChanged(auth,u=>{
+
 user=u;
+
 if(u){
+
 form.classList.add('visible');
+
 signInBtn.textContent='✓ Conta Google conectada';
+
 signInBtn.disabled=true;
+
 nameEl.textContent=u.displayName||'Paciente';
+
 avatarEl.src=u.photoURL||'';
+
 }else{
+
 form.classList.remove('visible');
+
 signInBtn.innerHTML='<span class="google-g">G</span> Avaliar com minha conta Google';
+
 signInBtn.disabled=false;
+
 }
+
 });
 
-document.querySelectorAll('.star').forEach(btn=>btn.addEventListener('click',()=>{
+
+/* ESTRELAS */
+
+document.querySelectorAll('.star').forEach(btn=>
+
+btn.addEventListener('click',()=>{
+
 rating=Number(btn.dataset.rating);
-document.querySelectorAll('.star').forEach(s=>s.classList.toggle('active',Number(s.dataset.rating)<=rating));
-}));
+
+document.querySelectorAll('.star').forEach(s=>
+
+s.classList.toggle(
+'active',
+Number(s.dataset.rating)<=rating
+)
+
+);
+
+})
+
+);
+
+
+/* ENVIO DA AVALIAÇÃO */
 
 document.getElementById('submitReview').addEventListener('click',async()=>{
+
+if(!user){
+
+setStatus('Faça login com sua conta Google antes de enviar a avaliação.');
+
+return;
+
+}
+
 const comment=commentEl.value.trim();
-if(!rating){setStatus('Escolha uma nota de 1 a 5 estrelas.');return;}
-if(comment.length<5){setStatus('Escreva um comentário breve sobre sua experiência.');return;}
+
+if(!rating){
+
+setStatus('Escolha uma nota de 1 a 5 estrelas.');
+
+return;
+
+}
+
+if(comment.length<5){
+
+setStatus('Escreva um comentário breve sobre sua experiência.');
+
+return;
+
+}
+
 try{
+
 setStatus('Enviando...');
+
 await addDoc(collection(db,'reviews'),{
+
 uid:user.uid,
 name:user.displayName||'Paciente',
 photoURL:user.photoURL||'',
@@ -285,44 +1101,109 @@ rating,
 comment,
 approved:false,
 createdAt:serverTimestamp()
-});
-commentEl.value='';
-rating=0;
-document.querySelectorAll('.star').forEach(s=>s.classList.remove('active'));
-setStatus('Sua avaliação foi enviada e ficará aguardando aprovação. Obrigado pela confiança.');
-}catch(e){
-console.error(e);
-setStatus('Não foi possível publicar agora.');
-}
+
 });
 
-const q=query(collection(db,'reviews'),where('approved','==',true));
-onSnapshot(q,snap=>{
-if(snap.empty){
-listEl.innerHTML='<div class="reviews-empty">As avaliações aparecerão aqui conforme forem aprovadas.</div>';
-return;
+commentEl.value='';
+
+rating=0;
+
+document.querySelectorAll('.star').forEach(s=>
+s.classList.remove('active')
+);
+
+setStatus(
+'Sua avaliação foi enviada e ficará aguardando aprovação. Obrigado pela confiança.'
+);
+
+}catch(e){
+
+console.error(e);
+
+setStatus('Não foi possível publicar agora.');
+
 }
+
+});
+
+
+/* EXIBIÇÃO DAS AVALIAÇÕES APROVADAS */
+
+const q=query(
+collection(db,'reviews'),
+where('approved','==',true)
+);
+
+onSnapshot(q,snap=>{
+
+if(snap.empty){
+
+listEl.innerHTML=
+'<div class="reviews-empty">As avaliações aparecerão aqui conforme forem aprovadas.</div>';
+
+return;
+
+}
+
 const docs=[...snap.docs].sort((a,b)=>{
+
 const ta=a.data().createdAt?.toMillis?.()||0;
 const tb=b.data().createdAt?.toMillis?.()||0;
+
 return tb-ta;
+
 });
+
 listEl.innerHTML=docs.map(doc=>{
+
 const r=doc.data();
-return `<article class="review-card"><div class="review-author"><strong>${escapeHtml(r.name||'Paciente')}</strong><small>Experiência de atendimento</small></div><div class="review-comment">${escapeHtml(r.comment)}</div><div class="review-rating" aria-label="${r.rating} de 5 estrelas">${stars(Number(r.rating)||0)}</div></article>`;
+
+return `<article class="review-card">
+
+<div class="review-author">
+
+<strong>${escapeHtml(r.name||'Paciente')}</strong>
+
+<small>Experiência de atendimento</small>
+
+</div>
+
+<div class="review-comment">
+${escapeHtml(r.comment)}
+</div>
+
+<div class="review-rating" aria-label="${r.rating} de 5 estrelas">
+${stars(Number(r.rating)||0)}
+</div>
+
+</article>`;
+
 }).join('');
+
+},e=>{
+
+console.error(e);
+
 });
+
 }
+
 </script>
 
+
 <script>
+
 const menu=document.querySelector('.menu');
 const nav=document.querySelector('.nav');
 
 menu.addEventListener('click',()=>{
+
 if(nav.style.display==='flex'){
+
 nav.style.display='';
+
 }else{
+
 nav.style.display='flex';
 nav.style.position='absolute';
 nav.style.top='64px';
@@ -333,8 +1214,12 @@ nav.style.flexDirection='column';
 nav.style.alignItems='flex-start';
 nav.style.background='#111';
 nav.style.border='1px solid #333';
+
 }
+
 });
+
 </script>
+
 </body>
 </html>
