@@ -160,7 +160,7 @@ footer{padding:32px 0 20px}.foot-nav a{font-size:8px}.foot-social{font-size:9px}
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-  import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+  import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
   import { getFirestore, collection, addDoc, query, where, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
   const config = window.ISAIAS_FIREBASE_CONFIG || null;
@@ -170,12 +170,13 @@ footer{padding:32px 0 20px}.foot-nav a{font-size:8px}.foot-social{font-size:9px}
   const avatarEl = document.getElementById('reviewAvatar');
   const commentEl = document.getElementById('reviewComment');
   const statusEl = document.getElementById('reviewStatus');
+  const loginStatusEl = document.getElementById('reviewLoginStatus');
   const listEl = document.getElementById('reviewList');
   let auth, db, user, rating = 0;
 
   function stars(n){ return '★'.repeat(n) + '☆'.repeat(5-n); }
   function escapeHtml(v){ const d=document.createElement('div'); d.textContent=v||''; return d.innerHTML; }
-  function setStatus(t){ statusEl.textContent=t||''; }
+  function setStatus(t){ statusEl.textContent=t||''; if(loginStatusEl) loginStatusEl.textContent=t||''; }
 
   if(!config || !config.apiKey){
     signInBtn.disabled = true;
@@ -189,26 +190,27 @@ footer{padding:32px 0 20px}.foot-nav a{font-size:8px}.foot-social{font-size:9px}
     const provider = new GoogleAuthProvider();
 
     signInBtn.addEventListener('click', async ()=>{
-  try {
-    setStatus('Abrindo login do Google...');
-    const result = await signInWithPopup(auth, provider);
-    if(result?.user){
-      user = result.user;
-      setStatus('');
-    }
-  } catch(e){
-    console.error(e);
-    if(e?.code === 'auth/popup-closed-by-user'){
-      setStatus('O login foi fechado. Tente novamente.');
-    }else if(e?.code === 'auth/popup-blocked'){
-      setStatus('O navegador bloqueou a janela de login. Permita pop-ups e tente novamente.');
-    }else if(e?.code === 'auth/unauthorized-domain'){
-      setStatus('Este domínio ainda não está autorizado no Firebase.');
-    }else{
-      setStatus('Não foi possível concluir o login do Google. Tente novamente.');
-    }
-  }
-});
+      try {
+        setStatus('Redirecionando para o login do Google...');
+        await signInWithRedirect(auth, provider);
+      } catch(e){
+        console.error(e);
+        if(e?.code === 'auth/unauthorized-domain'){
+          setStatus('Este domínio ainda não está autorizado no Firebase.');
+        }else{
+          setStatus('Não foi possível abrir o login do Google. Tente novamente.');
+        }
+      }
+    });
+
+    getRedirectResult(auth).catch(e=>{
+      console.error(e);
+      if(e?.code === 'auth/unauthorized-domain'){
+        setStatus('Este domínio ainda não está autorizado no Firebase.');
+      }else if(e?.code){
+        setStatus('Não foi possível concluir o login com o Google. Tente novamente.');
+      }
+    });
 
     onAuthStateChanged(auth, u=>{
       user=u;
