@@ -45,3 +45,4 @@ service cloud.firestore {
 
 OBSERVAÇÃO
 O login Google e o armazenamento das avaliações precisam de Firebase para funcionar de verdade entre diferentes visitantes. Sem a configuração do Firebase, a seção permanece visualmente pronta, mas o botão fica desativado até que as credenciais sejam preenchidas.
+Atualização da landing page.
