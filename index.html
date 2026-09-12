@@ -160,7 +160,7 @@ footer{padding:32px 0 20px}.foot-nav a{font-size:8px}.foot-social{font-size:9px}
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-  import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
   import { getFirestore, collection, addDoc, query, where, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
   const config = window.ISAIAS_FIREBASE_CONFIG || null;
@@ -189,19 +189,26 @@ footer{padding:32px 0 20px}.foot-nav a{font-size:8px}.foot-social{font-size:9px}
     const provider = new GoogleAuthProvider();
 
     signInBtn.addEventListener('click', async ()=>{
-      try {
-        setStatus('Abrindo login do Google...');
-        await signInWithRedirect(auth, provider);
-      } catch(e){
-        console.error(e);
-        setStatus('Não foi possível abrir o login do Google. Tente novamente.');
-      }
-    });
-
-    getRedirectResult(auth).catch(e=>{
-      console.error(e);
-      if(e?.code) setStatus('Não foi possível concluir o login com o Google.');
-    });
+  try {
+    setStatus('Abrindo login do Google...');
+    const result = await signInWithPopup(auth, provider);
+    if(result?.user){
+      user = result.user;
+      setStatus('');
+    }
+  } catch(e){
+    console.error(e);
+    if(e?.code === 'auth/popup-closed-by-user'){
+      setStatus('O login foi fechado. Tente novamente.');
+    }else if(e?.code === 'auth/popup-blocked'){
+      setStatus('O navegador bloqueou a janela de login. Permita pop-ups e tente novamente.');
+    }else if(e?.code === 'auth/unauthorized-domain'){
+      setStatus('Este domínio ainda não está autorizado no Firebase.');
+    }else{
+      setStatus('Não foi possível concluir o login do Google. Tente novamente.');
+    }
+  }
+});
 
     onAuthStateChanged(auth, u=>{
       user=u;
@@ -338,6 +345,129 @@ document.querySelector('.menu').addEventListener('click',()=>{let n=document.que
     font-size:16px;
   }
 }
+</style>
+
+
+<style id="mobile-hero-composition-final">
+/* Correção de composição mobile:
+   título menor que o desktop e imagem concentrada no topo,
+   evitando que o rosto concorra com a tipografia. */
+@media (max-width:600px){
+  .hero{
+    min-height:100svh;
+    height:auto;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero:before{
+    background:
+      linear-gradient(180deg,
+        rgba(8,8,8,.04) 0%,
+        rgba(8,8,8,.08) 18%,
+        rgba(8,8,8,.28) 32%,
+        rgba(8,8,8,.78) 47%,
+        rgba(8,8,8,.97) 58%,
+        #101010 68%,
+        #101010 100%),
+      url("images/isaias-hero.jpeg") 72% 0% / auto 49% no-repeat,
+      #101010;
+  }
+  .hero-content{
+    max-width:100%;
+    padding-top:42vh;
+    padding-bottom:30px;
+  }
+  .hero .eyebrow{
+    font-size:12.5px;
+    letter-spacing:3px;
+    margin-bottom:16px;
+  }
+  .hero h1{
+    font-size:clamp(50px,13.2vw,60px);
+    line-height:.9;
+    letter-spacing:-.6px;
+    max-width:100%;
+  }
+  .hero-copy{
+    font-size:16.5px;
+    line-height:1.58;
+    max-width:100%;
+    margin-top:22px;
+  }
+  .hero .rule{
+    margin:18px 0 13px;
+  }
+  .hero .btn{
+    margin-top:18px;
+    min-height:54px;
+    font-size:10px;
+  }
+  .hero-meta{
+    margin-top:24px;
+    gap:18px;
+  }
+  .hero-meta,
+  .hero-meta .meta{
+    font-size:9.5px;
+  }
+  .hero-side{
+    display:none;
+  }
+}
+@media (max-width:390px){
+  .hero-content{
+    padding-top:40vh;
+    padding-bottom:26px;
+  }
+  .hero h1{
+    font-size:50px;
+  }
+  .hero-copy{
+    font-size:16px;
+  }
+  .hero-meta,
+  .hero-meta .meta{
+    font-size:9px;
+  }
+}
+</style>
+
+
+<style id="smartphone-followup-photo-final">
+/* Smartphone only: remove the excessive black gap before the next portrait.
+   Tablet and desktop remain unchanged. */
+@media (max-width:600px){
+  .hero + .about{
+    margin-top:0 !important;
+  }
+  .hero + .about .about-photo{
+    height:clamp(520px,78vh,690px);
+    min-height:0;
+    margin-top:0;
+    overflow:hidden;
+  }
+  .hero + .about .about-photo img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center 18%;
+  }
+  .hero + .about .about-photo + *{
+    margin-top:0;
+  }
+}
+@media (max-width:390px){
+  .hero + .about .about-photo{
+    height:560px;
+  }
+}
+</style>
+
+
+<style id="google-review-auth-final">
+.google-btn:disabled{cursor:not-allowed}
+.review-status{display:inline-block;min-height:18px}
 </style>
 
 </body></html>
