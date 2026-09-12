@@ -105,6 +105,8 @@ footer{padding:32px 0 20px}.foot-nav a{font-size:8px}.foot-social{font-size:9px}
   .meta{font-size:7.2px}
 }
 </style>
+
+<script src="firebase-config.js"></script>
 </head>
 <body>
 <header><div class="wrap head"><a class="brand" href="#inicio"><div class="monogram">IB</div><div><div class="brand-name">ISAÍAS BEZERRA</div><div class="brand-role">Psicanalista Clínico<br>e Tanatologista</div></div></a><nav class="nav"><a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#processo">Processo</a><a href="#para-quem">Para quem é</a><a href="#abordagem">Abordagem</a><a href="#avaliacoes">Avaliações</a><a href="#faq">FAQ</a><a href="#contato">Contato</a><a class="social" href="https://www.instagram.com/isaiasbezerrapsi" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a class="btn" href="https://wa.me/5583981254124" target="_blank" rel="noopener">◉ &nbsp; AGENDAR ATENDIMENTO</a></nav><button class="menu" aria-label="Abrir menu" onclick="document.body.classList.toggle('open')">☰</button></div></header>
@@ -160,7 +162,7 @@ footer{padding:32px 0 20px}.foot-nav a{font-size:8px}.foot-social{font-size:9px}
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-  import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
   import { getFirestore, collection, addDoc, query, where, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
   const config = window.ISAIAS_FIREBASE_CONFIG || null;
@@ -191,24 +193,23 @@ footer{padding:32px 0 20px}.foot-nav a{font-size:8px}.foot-social{font-size:9px}
 
     signInBtn.addEventListener('click', async ()=>{
       try {
-        setStatus('Redirecionando para o login do Google...');
-        await signInWithRedirect(auth, provider);
+        setStatus('Abrindo login do Google...');
+        const result = await signInWithPopup(auth, provider);
+        if(result?.user){
+          user = result.user;
+          setStatus('');
+        }
       } catch(e){
         console.error(e);
-        if(e?.code === 'auth/unauthorized-domain'){
+        if(e?.code === 'auth/popup-closed-by-user'){
+          setStatus('O login foi fechado. Tente novamente.');
+        }else if(e?.code === 'auth/popup-blocked'){
+          setStatus('O navegador bloqueou a janela de login. Permita pop-ups e tente novamente.');
+        }else if(e?.code === 'auth/unauthorized-domain'){
           setStatus('Este domínio ainda não está autorizado no Firebase.');
         }else{
-          setStatus('Não foi possível abrir o login do Google. Tente novamente.');
+          setStatus('Não foi possível concluir o login do Google. Tente novamente.');
         }
-      }
-    });
-
-    getRedirectResult(auth).catch(e=>{
-      console.error(e);
-      if(e?.code === 'auth/unauthorized-domain'){
-        setStatus('Este domínio ainda não está autorizado no Firebase.');
-      }else if(e?.code){
-        setStatus('Não foi possível concluir o login com o Google. Tente novamente.');
       }
     });
 
